@@ -1,0 +1,408 @@
+{
+  "id": 36,
+  "page": 1,
+  "results": [
+    {
+      "adult": false,
+      "backdrop_path": "/t3Oea7KbSpOvuqddMnlFtZ4WHn.jpg",
+      "genre_ids": [
+        18,
+        36,
+        53
+      ],
+      "id": 314365,
+      "original_language": "en",
+      "original_title": "Spotlight",
+      "overview": null,
+      "release_date": "2015-11-06",
+      "poster_path": "/ngKxbvsn9Si5TYVJfi1EGAGwThU.jpg",
+      "popularity": 15.540798,
+      "title": "Spotlight",
+      "video": false,
+      "vote_average": 7.7,
+      "vote_count": 588
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/qcb6z1HpokTOKdjqDTsnjJk0Xvg.jpg",
+      "genre_ids": [
+        36,
+        18,
+        53,
+        10752
+      ],
+      "id": 205596,
+      "original_language": "en",
+      "original_title": "The Imitation Game",
+      "overview": "Based on the real life story of legendary cryptanalyst Alan Turing, the film portrays the nail-biting race against time by Turing and his brilliant team of code-breakers at Britain's top-secret Government Code and Cypher School at Bletchley Park, during the darkest days of World War II.",
+      "release_date": "2014-11-14",
+      "poster_path": "/noUp0XOqIcmgefRnRZa1nhtRvWO.jpg",
+      "popularity": 8.022757,
+      "title": "The Imitation Game",
+      "video": false,
+      "vote_average": 8,
+      "vote_count": 2601
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/vJfivaGbEvDLJgZGthUUVBLeFB5.jpg",
+      "genre_ids": [
+        28,
+        12,
+        18,
+        36,
+        53
+      ],
+      "id": 205775,
+      "original_language": "en",
+      "original_title": "In the Heart of the Sea",
+      "overview": "In the winter of 1820, the New England whaling ship Essex was assaulted by something no one could believe: a whale of mammoth size and will, and an almost human sense of vengeance.  The real-life maritime disaster would inspire Herman Melville’s Moby Dick.  But that told only half the story.  “Heart of the Sea” reveals the encounter’s harrowing aftermath, as the ship’s surviving crew is pushed to their limits and forced to do the unthinkable to stay alive.  Braving storms, starvation, panic and despair, the men will call into question their deepest beliefs, from the value of their lives to the morality of their trade, as their captain searches for direction on the open sea and his first mate still seeks to bring the great whale down.",
+      "release_date": "2015-11-20",
+      "poster_path": "/uekIGnzTACciWrfR7jOuof7xHgR.jpg",
+      "popularity": 7.417919,
+      "title": "In the Heart of the Sea",
+      "video": false,
+      "vote_average": 6.2,
+      "vote_count": 339
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/4y5TDUZlqUmWWtjTAznWb6CFpzt.jpg",
+      "genre_ids": [
+        18,
+        36,
+        10752
+      ],
+      "id": 857,
+      "original_language": "en",
+      "original_title": "Saving Private Ryan",
+      "overview": "As U.S. troops storm the beaches of Normandy, three brothers lie dead on the battlefield, with a fourth trapped behind enemy lines. Ranger captain John Miller and seven men are tasked with penetrating German-held territory and bringing the boy home.",
+      "release_date": "1998-07-24",
+      "poster_path": "/gc7IN6bWNaWXv4vI6cxSmeB7PeO.jpg",
+      "popularity": 5.578374,
+      "title": "Saving Private Ryan",
+      "video": false,
+      "vote_average": 7.6,
+      "vote_count": 2639
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/r3bv4zrP9yLkKcqyJeVcVUuyOml.jpg",
+      "genre_ids": [
+        36,
+        18
+      ],
+      "id": 321697,
+      "original_language": "en",
+      "original_title": "Steve Jobs",
+      "overview": "Set backstage at three iconic product launches and ending in 1998 with the unveiling of the iMac, Steve Jobs takes us behind the scenes of the digital revolution to paint an intimate portrait of the brilliant man at its epicenter.",
+      "release_date": "2015-10-09",
+      "poster_path": "/ahUiUaeOE2lvnOy7srxaUJbbvYv.jpg",
+      "popularity": 5.177863,
+      "title": "Steve Jobs",
+      "video": false,
+      "vote_average": 7,
+      "vote_count": 535
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/xnRPoFI7wzOYviw3PmoG94X2Lnc.jpg",
+      "genre_ids": [
+        18,
+        36
+      ],
+      "id": 76203,
+      "original_language": "en",
+      "original_title": "12 Years a Slave",
+      "overview": "In the pre-Civil War United States, Solomon Northup, a free black man from upstate New York, is abducted and sold into slavery. Facing cruelty as well as unexpected kindnesses Solomon struggles not only to stay alive, but to retain his dignity. In the twelfth year of his unforgettable odyssey, Solomon’s chance meeting with a Canadian abolitionist will forever alter his life.",
+      "release_date": "2013-10-18",
+      "poster_path": "/kb3X943WMIJYVg4SOAyK0pmWL5D.jpg",
+      "popularity": 3.073699,
+      "title": "12 Years a Slave",
+      "video": false,
+      "vote_average": 7.9,
+      "vote_count": 1522
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/rIpSszng8P0DL0TimSzZbpfnvh1.jpg",
+      "genre_ids": [
+        18,
+        36,
+        10752
+      ],
+      "id": 424,
+      "original_language": "en",
+      "original_title": "Schindler's List",
+      "overview": "Told from the perspective of businessman Oskar Schindler who saved over a thousand Jewish lives from the Nazis while they worked as slaves in his factory. Schindler’s List is based on a true story, illustrated in black and white and controversially filmed in many original locations.",
+      "release_date": "1993-11-29",
+      "poster_path": "/yPisjyLweCl1tbgwgtzBCNCBle.jpg",
+      "popularity": 3.785159,
+      "title": "Schindler's List",
+      "video": false,
+      "vote_average": 8,
+      "vote_count": 1839
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/nO0GtGFQmEuuOyAQVpHjJlWBU8O.jpg",
+      "genre_ids": [
+        18,
+        28,
+        10752,
+        36
+      ],
+      "id": 616,
+      "original_language": "en",
+      "original_title": "The Last Samurai",
+      "overview": "Nathan Algren is an American hired to instruct the Japanese army in the ways of modern warfare -- in this lush epic set in the 1870s, which finds Algren learning to respect the samurai and the honorable principles that rule them. Pressed to destroy the samurai's way of life in the name of modernization and open trade, Algren decides to become an ultimate warrior himself and to fight for their right to exist.",
+      "release_date": "2003-12-05",
+      "poster_path": "/sLv5pXysIz7QbtKFJy85d5yxv2W.jpg",
+      "popularity": 3.770516,
+      "title": "The Last Samurai",
+      "video": false,
+      "vote_average": 7,
+      "vote_count": 859
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/dVZNSiUG8TDzNuaR87NKVTNYhWX.jpg",
+      "genre_ids": [
+        28,
+        18,
+        36,
+        10752
+      ],
+      "id": 197,
+      "original_language": "en",
+      "original_title": "Braveheart",
+      "overview": "Enraged at the slaughter of Murron, his new bride and childhood love, legendary Scottish warrior William Wallace slays a platoon of the local English lord's soldiers. This leads the village to revolt and, eventually, the entire country to rise up against English rule.",
+      "release_date": "1995-05-24",
+      "poster_path": "/2qAgGeYdLjelOEqjW9FYvPHpplC.jpg",
+      "popularity": 2.74003,
+      "title": "Braveheart",
+      "video": false,
+      "vote_average": 7.4,
+      "vote_count": 1845
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/3hGRV0xR11aUxCGAJ52F8MTxrno.jpg",
+      "genre_ids": [
+        18,
+        36
+      ],
+      "id": 152532,
+      "original_language": "en",
+      "original_title": "Dallas Buyers Club",
+      "overview": "Loosely based on the true-life tale of Ron Woodroof, a drug-taking, women-loving, homophobic man who in 1986 was diagnosed with HIV/AIDS and given thirty days to live.",
+      "release_date": "2013-09-07",
+      "poster_path": "/aoxYci1HnJdb4bno2jYSnzSGDkL.jpg",
+      "popularity": 3.71528,
+      "title": "Dallas Buyers Club",
+      "video": false,
+      "vote_average": 7.9,
+      "vote_count": 1266
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/ysCQvbaEPFTEhg1ufY7B2G8oJmT.jpg",
+      "genre_ids": [
+        28,
+        36,
+        10752
+      ],
+      "id": 855,
+      "original_language": "en",
+      "original_title": "Black Hawk Down",
+      "overview": "When U.S. Rangers and an elite Delta Force team attempt to kidnap two underlings of a Somali warlord, their Black Hawk helicopters are shot down, and the Americans suffer heavy casualties, facing intense fighting from the militia on the ground.",
+      "release_date": "2001-12-28",
+      "poster_path": "/yUzQ4r3q1Dy0bUAkMvUIwf0rPpR.jpg",
+      "popularity": 2.691546,
+      "title": "Black Hawk Down",
+      "video": false,
+      "vote_average": 7,
+      "vote_count": 922
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/5JadVEOVqxydiUOvz6BYlTMkDQP.jpg",
+      "genre_ids": [
+        18,
+        36,
+        80
+      ],
+      "id": 3131,
+      "original_language": "en",
+      "original_title": "Gangs of New York",
+      "overview": "1863. America was born in the streets. In this movie, we see Amsterdam Vallon returning to the Five Points of America to seek vengeance against the psychotic gangland kingpin Bill the Butcher who murdered his father years ago. With an eager pickpocket by his side and a whole new army, Vallon fights his way to seek vengeance on the Butcher and restore peace in the area.",
+      "release_date": "2002-12-19",
+      "poster_path": "/ytKo2tLvKUd9Kbs0poXSQh6ft7d.jpg",
+      "popularity": 3.482647,
+      "title": "Gangs of New York",
+      "video": false,
+      "vote_average": 6.8,
+      "vote_count": 653
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/mhEPV19vQsApRYgCIUu6tJJVUer.jpg",
+      "genre_ids": [
+        18,
+        36,
+        10749
+      ],
+      "id": 1904,
+      "original_language": "en",
+      "original_title": "Memoirs of a Geisha",
+      "overview": "Based on the internationally acclaimed novel by Arthur Golden, Memoirs of a Geisha is a sweeping romantic epic set in a mysterious and exotic world that still casts a potent spell today. The story begins in the years before WWII when a penniless Japanese child is torn from her family to work as a maid in a geisha house.",
+      "release_date": "2005-12-06",
+      "poster_path": "/e8FHAqAYpYQ7P3yHRIs4hwjvnSU.jpg",
+      "popularity": 3.229661,
+      "title": "Memoirs of a Geisha",
+      "video": false,
+      "vote_average": 7,
+      "vote_count": 289
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/1egC8NH3RLbebr3XPjdYVXGugpD.jpg",
+      "genre_ids": [
+        80,
+        18,
+        36
+      ],
+      "id": 11322,
+      "original_language": "en",
+      "original_title": "Public Enemies",
+      "overview": "Depression-era bank robber John Dillinger's charm and audacity endear him to much of America's downtrodden public, but he's also a thorn in the side of J. Edgar Hoover and the fledgling FBI. Desperate to capture the elusive outlaw, Hoover makes Dillinger his first Public Enemy Number One and assigns his top agent, Melvin Purvis, the task of bringing him in dead or alive.",
+      "release_date": "2009-07-01",
+      "poster_path": "/qisfF7ENdmGI8fpQJoCxIIU1QhH.jpg",
+      "popularity": 2.219948,
+      "title": "Public Enemies",
+      "video": false,
+      "vote_average": 6.5,
+      "vote_count": 692
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/xzVLFeKcEz9pCDfjauh5dd0VBDY.jpg",
+      "genre_ids": [
+        14,
+        36
+      ],
+      "id": 314405,
+      "original_language": "it",
+      "original_title": "Il racconto dei racconti",
+      "overview": "A fantasy film with horror elements, \"The Tale of Tales\" is loosely inspired by the 17th century collection of fairy tales of the same name by Italian writer Giambattista Basile.",
+      "release_date": "2015-05-14",
+      "poster_path": "/mEABzxV2ylLduvQgiiljctPj3Qt.jpg",
+      "popularity": 3.128278,
+      "title": "Tale of Tales",
+      "video": false,
+      "vote_average": 6,
+      "vote_count": 88
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/4cJv0cghFaJfepzGdOyqeNaJWYb.jpg",
+      "genre_ids": [
+        80,
+        18,
+        36,
+        53
+      ],
+      "id": 117,
+      "original_language": "en",
+      "original_title": "The Untouchables",
+      "overview": "Young Treasury Agent Elliot Ness arrives in Chicago and is determined to take down Al Capone but it's not going to be easy, because Capone has the police in his pocket. Ness meets Jimmy Malone a veteran patrolman and probably the most honorable one in the force. He asks Malone to help him get Capone but Malone warns him that if he goes after Capone, he is going to war.",
+      "release_date": "1987-06-02",
+      "poster_path": "/qx4CDBhJDX5LQoVZ8UXPxQy5pt7.jpg",
+      "popularity": 2.102158,
+      "title": "The Untouchables",
+      "video": false,
+      "vote_average": 7.4,
+      "vote_count": 460
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/8VHxc79a8wZRM6jfw2yhXtZkn1.jpg",
+      "genre_ids": [
+        18,
+        80,
+        36
+      ],
+      "id": 88794,
+      "original_language": "en",
+      "original_title": "J. Edgar",
+      "overview": "As the face of law enforcement in America for almost 50 years, J. Edgar Hoover was feared and admired, reviled and revered. But behind closed doors, he held secrets that would have destroyed his image, his career and his life.",
+      "release_date": "2011-11-09",
+      "poster_path": "/upACO9i21lb5lG7ovf51m3lIPcv.jpg",
+      "popularity": 3.085755,
+      "title": "J. Edgar",
+      "video": false,
+      "vote_average": 5.7,
+      "vote_count": 326
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/xdTkAfB4mNcinEMkoUKkaedY6uN.jpg",
+      "genre_ids": [
+        36,
+        18
+      ],
+      "id": 273895,
+      "original_language": "en",
+      "original_title": "Selma",
+      "overview": "\"Selma,\" as in Alabama, the place where segregation in the South was at its worst, leading to a march that ended in violence, forcing a famous statement by President Lyndon B. Johnson that ultimately led to the signing of the Civil Rights Act.",
+      "release_date": "2014-12-25",
+      "poster_path": "/a1J3z3mTHATelvpplJcavuMsV1D.jpg",
+      "popularity": 3.028794,
+      "title": "Selma",
+      "video": false,
+      "vote_average": 7.4,
+      "vote_count": 444
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/yiyZ40pejKQ8QQFCgclvcuIVQVP.jpg",
+      "genre_ids": [
+        36,
+        18
+      ],
+      "id": 293646,
+      "original_language": "en",
+      "original_title": "The 33",
+      "overview": "Based on a true story about the collapse at the mine in San Jose, Chile that  left 33 miners isolated underground for 69 days.",
+      "release_date": "2015-11-09",
+      "poster_path": "/6QkKCZCfFQ91jjRZgHndiE2npmw.jpg",
+      "popularity": 3.00233,
+      "title": "The 33",
+      "video": false,
+      "vote_average": 5.3,
+      "vote_count": 166
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/s70pUyZZLXWO8WPr9DAMgSTWx7z.jpg",
+      "genre_ids": [
+        28,
+        18,
+        36
+      ],
+      "id": 967,
+      "original_language": "en",
+      "original_title": "Spartacus",
+      "overview": "Spartacus is a 1960 American historical drama film directed by Stanley Kubrick and based on the novel of the same name by Howard Fast about the historical life of Spartacus and the Third Servile War. The film stars Kirk Douglas as the rebellious slave Spartacus who leads a violent revolt against the decadent Roman empire. The film was awarded four Oscars and stands today as one of the greatest classics of the Sword and Sandal genre.",
+      "release_date": "1960-10-06",
+      "poster_path": "/hpICDCTdMIpcqEeNa0k3rcedw2B.jpg",
+      "popularity": 1.973965,
+      "title": "Spartacus",
+      "video": false,
+      "vote_average": 6.9,
+      "vote_count": 142
+    }
+  ],
+  "total_pages": 179,
+  "total_results": 3572
+}
