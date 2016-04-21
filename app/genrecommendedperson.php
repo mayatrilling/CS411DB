@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
 
     <meta charset="utf-8">
@@ -8,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
     <title>Movie Databaes</title>
 
@@ -25,10 +24,8 @@
     <![endif]-->
 
 </head>
-
 <body>
-
-    <!-- Navigation -->
+<!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -101,153 +98,189 @@
 
     </header>
 
-    <!-- Page Content -->
-    <div class="container">
+<?php
+$servername = "databaes411.web.engr.illinois.edu";
+$username = "databaes_kjabon";
+$password = "n35xray";
+$dbname = "databaes_imdb";
 
-        <div class="row">
-            <div class="col-lg-12">
-                <h1>Welcome to Movie Databaes!</h1>
-                <p>Search below for a movie or actor/actress you are interested in learning about!</p>
-            </div>
-        </div>
+$name = $_GET["name"];
 
-        <hr>
-
- 
-<!-- Movie search -->
-
-
-<div id="search">
-    
-    <form action ="searchlanding.php" method="get">
-        <input type="search" name="name" placeholder="Type movie here" />
-        <button type="submit" class="btn btn-primary">Go!</button>
-       
-</button>
-
-    </form>
-    <form action = "genrecommendedmovie.php" method="get">   
-    	<button type="submit" class="btn btn-default btn-primary" id="recommended_movies">
- 	<span class="glyphicon glyphicon-film" aria-hidden="true"></span> Movies you might like</button>
- </form>
- 
- <form action = "liked_movies.php" method="get">   
-    	<button type="submit" class="btn btn-default btn-primary" id="liked_movies">
- 	<span class="glyphicon glyphicon-film" aria-hidden="true"></span> View liked movies</button>
- </form>
- 
-</div>
-
-
-
-<!-- People search -->
-
-<div id="search">
-    
-    <form action ="search_landing_people.php" method="get">
-        <input type="search" name="name" placeholder="Type person here" />
-        <button type="submit" class="btn btn-primary">Go!</button>
-</button>
-
-
-    </form>
-     <form action = "genrecommendedperson.php" method="get">   
-    	<button type="submit" class="btn btn-default btn-primary" id="recommended_people">
-	<span class="glyphicon glyphicon-film" aria-hidden="true"></span> Cast members you might like</button>
- </form>
- 
- <form action = "liked_people.php" method="get">   
-    	<button type="submit" class="btn btn-default btn-primary" id="liked_people">
-	<span class="glyphicon glyphicon-film" aria-hidden="true"></span> View liked cast members</button>
- </form>
- 
-</div>
+//Get list of liked movies
 
 
 
 
 
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
 
-<!-- Genre Browsing -->
+$sql = "SELECT `person_name` 
+	FROM `worked_on_`
+	WHERE `acted_in` = '1'
+	AND `movie_name` = ANY (SELECT `title` FROM `movies` WHERE `Liked` > '0')";
+$result = $conn->query($sql);
 
- <div class="container">
+$ar = array();
 
-        <div class="row">
-            <div class="col-lg-12">
-                <h1>Browse By a Specific Genre?</h1>
-                <p>Use the dropdown to browse movies by genre!</p>
-            </div>
-        </div>
-
-        <hr>
-
-
- 
-<!-- Split button -->
-<div class="btn-group">
-  <button type="button" class="btn btn-danger">Action</button>
-  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <span class="caret"></span>
-    <span class="sr-only">Genre</span>
-  </button>
-  <ul class="dropdown-menu">
-    <li><a href="./genrebrowse.php?name=Action">Action</a></li>
-    <li><a href="./genrebrowse.php?name=Adventure">Adventure</a></li>
-    <li><a href="./genrebrowse.php?name=Animation">Animation</a></li>
-    <li><a href="./genrebrowse.php?name=Comedy">Comedy</a></li>
-    <li><a href="./genrebrowse.php?name=Crime">Crime</a></li>
-    <li><a href="./genrebrowse.php?name=Documentary">Documentary</a></li>
-    <li><a href="./genrebrowse.php?name=Drama">Drama</a></li>
-    <li><a href="./genrebrowse.php?name=Family">Family</a></li>
-    <li><a href="./genrebrowse.php?name=Fantasy">Fantasy</a></li>
-    <li><a href="./genrebrowse.php?name=History">History</a></li>
-    <li><a href="./genrebrowse.php?name=Horror">Horror</a></li>
-    <li><a href="./genrebrowse.php?name=Music">Music</a></li>
-    <li><a href="./genrebrowse.php?name=War">War</a></li>
-
-  </ul>
-</div>
-
-<!--Insert/Delete/Replace Suggestions Area -->
-
-<div class="container">
-
-        <div class="row">
-            <div class="col-lg-12">
-                <h1>Are We Missing Something?</h1>
-                <p>Suggest/Update films in our crowdsourced queue!</p>
-            </div>
-        </div>
-
-<div id="search">
-    
-    
-    <form action = "addresult.php" method="post">
-    
-        <input type="search" name="searchtitle" value="" placeholder="Suggest a movie title" />
-        <button type="submit" class="btn btn-primary">Suggest!</button>
-    </form>
-</div>
-
-<div id="search">
+if ($result->num_rows > 0) {
+    // output data of each row
    
-    <form action = "deletemovie.php" method="post">
-    
-        <input type="search" name="name" value = "" placeholder="Delete a movie" />
-        <button type="submit" class="btn btn-primary">Delete!</button>
-    </form>
-</div>
+    while($row = $result->fetch_assoc()) {
+    	if ($row["person_name"] != NULL) {
+    		$title = $row["person_name"];
+		$ar[$title]++;
+        }
+        
+    }
+} 
 
-<div id="search">
+$sql2 = "SELECT `person_name`
+	FROM `worked_on_`
+	WHERE `directed` = '1'
+	AND `movie_name` = ANY (SELECT `title` FROM `movies` WHERE `Liked` > '0')";
+
+$result2 = $conn->query($sql2);
+
+if ($result2->num_rows > 0) {
+    // output data of each row
    
-    <form action = "updateresult.php" method="post">
-        <input type="search" name = "oldtitle" value="" placeholder="old title" /> <input type="search" name = "newtitle" value="" placeholder="new title" />
-        <button type="submit" class="btn btn-primary">Update!</button>
-    </form>
-</div>
-        <hr>
+    while($row = $result2->fetch_assoc()) {
+    	if ($row["person_name"] != NULL) {
+    		$title = $row["person_name"];
+		$ar[$title]++;
+        }
+        
+    }
+} 	
 
-        <!-- Footer -->
+echo "Cast members of movies you like"."<br>";
+	
+arsort($ar);
+
+for ($x = 0; $x <= count($ar); $x++) {
+	$person_name = key($ar);
+	$link = "<a href='./search_result_person.php?name=$person_name'> $person_name </a><br />";
+	echo $link;
+	next($ar);
+}  
+
+echo "<br>";
+
+$sql2 = "SELECT `name`			
+	FROM `cast_crew`
+	WHERE `Liked` > '0'";
+$result2 = $conn->query($sql2);
+
+//Second pass for recommendations
+if ($result2->num_rows > 0) {		//Query 2 is every liked person
+
+	while($row = $result2->fetch_assoc()) {
+		if ($row["name"] != NULL) {
+			$current_liked_person = $row["name"];	
+			echo "Because you liked ".$current_liked_person."<br>";
+	    		
+	    		$array = array();
+	    		
+	    		$sql3 = "SELECT `name`					
+				FROM `cast_crew`";
+	    		$result3 = $conn->query($sql3);
+	    		
+	    		if ($result3->num_rows > 0) {		//Query 3 is every person
+
+				while($row = $result3->fetch_assoc()) {
+					if ($row["name"] != NULL) {
+	    					$current_queried_person = $row["name"];	
+						
+	    					$sql4 = "SELECT `person_name`
+							 FROM `worked_on_`
+							 WHERE `person_name` like '%$current_queried_person%'
+							 AND '$current_queried_person' <> '$current_liked_person'
+							 AND `wrote` = 0
+							 AND `movie_name` = ANY(SELECT `movie_name` FROM `worked_on_` WHERE `person_name` like '%$current_liked_person%')";
+	    		
+	    					$result4 = $conn->query($sql4);
+	    		    		
+	    		    			if ($result4->num_rows > 0) {
+    							while($row = $result4->fetch_assoc()) {
+    								$person_name = $row["person_name"];
+			    					$array[$person_name]++;
+			    				}
+    								
+						}	
+			
+				        }
+		        
+		    		}
+			}
+			
+			arsort($array);
+		    	
+			for ($x = 0; $x <= count($array); $x++) {
+			  	$person_name = key($array);
+			  	$link = "<a href='./search_result_person.php?name=$person_name'> $person_name </a><br />";
+				echo $link;
+			  	next($array);
+			}  
+	    	}
+	}
+}else {
+    echo "0 results";
+}
+
+$title = $row["title"];
+
+$conn->close();
+
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+
+
+
+  
+
+$conn->close();
+?>
+
+<br>
+
+
+	
+   <script type = "text/javascript">
+   	var urlTitle = $(location).attr('search').substring(6);
+   	var parsedUrlTitle = urlTitle.replace(/#|+/g,'');
+   	
+   	$(document).ready(function() {
+   	$("#likebutton").click(function() {
+   		$.ajax({
+   		  url:"updatelike.php",
+   		  data:{
+   		  	original_title = parsedUrlTitle
+   		  },
+   		  async: true,
+   		  type: "POST",
+   		  success:function(result) {
+   		  	alert(result);
+   		  },
+   		  error:function(request, status, error) {
+   		  	alert(request.responseText);
+   		  }
+   		});
+   	});
+   	})
+   </script>
+
+   <!-- Footer -->
         <footer>
             <div class="row">
                 <div class="col-lg-12">
@@ -274,5 +307,4 @@
     </script>
 
 </body>
-
 </html>

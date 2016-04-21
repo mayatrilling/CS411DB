@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
 
     <meta charset="utf-8">
@@ -8,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
     <title>Movie Databaes</title>
 
@@ -25,10 +24,8 @@
     <![endif]-->
 
 </head>
-
 <body>
-
-    <!-- Navigation -->
+<!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -101,153 +98,73 @@
 
     </header>
 
-    <!-- Page Content -->
-    <div class="container">
+<?php
+$servername = "databaes411.web.engr.illinois.edu";
+$username = "databaes_kjabon";
+$password = "n35xray";
+$dbname = "databaes_imdb";
 
-        <div class="row">
-            <div class="col-lg-12">
-                <h1>Welcome to Movie Databaes!</h1>
-                <p>Search below for a movie or actor/actress you are interested in learning about!</p>
-            </div>
-        </div>
+$name = $_GET["name"];
 
-        <hr>
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
 
- 
-<!-- Movie search -->
+$sql = "SELECT * FROM movies WHERE title like '%$name%'";
+$result = $conn->query($sql);
 
-
-<div id="search">
-    
-    <form action ="searchlanding.php" method="get">
-        <input type="search" name="name" placeholder="Type movie here" />
-        <button type="submit" class="btn btn-primary">Go!</button>
-       
-</button>
-
-    </form>
-    <form action = "genrecommendedmovie.php" method="get">   
-    	<button type="submit" class="btn btn-default btn-primary" id="recommended_movies">
- 	<span class="glyphicon glyphicon-film" aria-hidden="true"></span> Movies you might like</button>
- </form>
- 
- <form action = "liked_movies.php" method="get">   
-    	<button type="submit" class="btn btn-default btn-primary" id="liked_movies">
- 	<span class="glyphicon glyphicon-film" aria-hidden="true"></span> View liked movies</button>
- </form>
- 
-</div>
+/*
+Generate a list of titles that are links to another php page, very similar to this, which will contain the buttons and movie info.
+*/
 
 
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+    	if ($row["title"] != NULL) {
+    		$title = $row["title"];
+		$link = "<a href='./searchresult.php?name=$title'> $title </a><br />";
+		echo $link;
+       		//echo "Title: " . $row["title"]."<br>";
+        }
+        
+    }
+} else {
+    echo "0 results";
+}
+$conn->close();
+?>
 
-<!-- People search -->
+<br>
 
-<div id="search">
-    
-    <form action ="search_landing_people.php" method="get">
-        <input type="search" name="name" placeholder="Type person here" />
-        <button type="submit" class="btn btn-primary">Go!</button>
-</button>
+   <script type = "text/javascript">
+   	var urlTitle = $(location).attr('search').substring(6);
+   	var parsedUrlTitle = urlTitle.replace(/#|+/g,'');
+   	
+   	$(document).ready(function() {
+   	$("#likebutton").click(function() {
+   		$.ajax({
+   		  url:"updatelike.php",
+   		  data:{
+   		  	original_title = parsedUrlTitle
+   		  },
+   		  async: true,
+   		  type: "POST",
+   		  success:function(result) {
+   		  	alert(result);
+   		  },
+   		  error:function(request, status, error) {
+   		  	alert(request.responseText);
+   		  }
+   		});
+   	});
+   	})
+   </script>
 
-
-    </form>
-     <form action = "genrecommendedperson.php" method="get">   
-    	<button type="submit" class="btn btn-default btn-primary" id="recommended_people">
-	<span class="glyphicon glyphicon-film" aria-hidden="true"></span> Cast members you might like</button>
- </form>
- 
- <form action = "liked_people.php" method="get">   
-    	<button type="submit" class="btn btn-default btn-primary" id="liked_people">
-	<span class="glyphicon glyphicon-film" aria-hidden="true"></span> View liked cast members</button>
- </form>
- 
-</div>
-
-
-
-
-
-
-<!-- Genre Browsing -->
-
- <div class="container">
-
-        <div class="row">
-            <div class="col-lg-12">
-                <h1>Browse By a Specific Genre?</h1>
-                <p>Use the dropdown to browse movies by genre!</p>
-            </div>
-        </div>
-
-        <hr>
-
-
- 
-<!-- Split button -->
-<div class="btn-group">
-  <button type="button" class="btn btn-danger">Action</button>
-  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <span class="caret"></span>
-    <span class="sr-only">Genre</span>
-  </button>
-  <ul class="dropdown-menu">
-    <li><a href="./genrebrowse.php?name=Action">Action</a></li>
-    <li><a href="./genrebrowse.php?name=Adventure">Adventure</a></li>
-    <li><a href="./genrebrowse.php?name=Animation">Animation</a></li>
-    <li><a href="./genrebrowse.php?name=Comedy">Comedy</a></li>
-    <li><a href="./genrebrowse.php?name=Crime">Crime</a></li>
-    <li><a href="./genrebrowse.php?name=Documentary">Documentary</a></li>
-    <li><a href="./genrebrowse.php?name=Drama">Drama</a></li>
-    <li><a href="./genrebrowse.php?name=Family">Family</a></li>
-    <li><a href="./genrebrowse.php?name=Fantasy">Fantasy</a></li>
-    <li><a href="./genrebrowse.php?name=History">History</a></li>
-    <li><a href="./genrebrowse.php?name=Horror">Horror</a></li>
-    <li><a href="./genrebrowse.php?name=Music">Music</a></li>
-    <li><a href="./genrebrowse.php?name=War">War</a></li>
-
-  </ul>
-</div>
-
-<!--Insert/Delete/Replace Suggestions Area -->
-
-<div class="container">
-
-        <div class="row">
-            <div class="col-lg-12">
-                <h1>Are We Missing Something?</h1>
-                <p>Suggest/Update films in our crowdsourced queue!</p>
-            </div>
-        </div>
-
-<div id="search">
-    
-    
-    <form action = "addresult.php" method="post">
-    
-        <input type="search" name="searchtitle" value="" placeholder="Suggest a movie title" />
-        <button type="submit" class="btn btn-primary">Suggest!</button>
-    </form>
-</div>
-
-<div id="search">
-   
-    <form action = "deletemovie.php" method="post">
-    
-        <input type="search" name="name" value = "" placeholder="Delete a movie" />
-        <button type="submit" class="btn btn-primary">Delete!</button>
-    </form>
-</div>
-
-<div id="search">
-   
-    <form action = "updateresult.php" method="post">
-        <input type="search" name = "oldtitle" value="" placeholder="old title" /> <input type="search" name = "newtitle" value="" placeholder="new title" />
-        <button type="submit" class="btn btn-primary">Update!</button>
-    </form>
-</div>
-        <hr>
-
-        <!-- Footer -->
+   <!-- Footer -->
         <footer>
             <div class="row">
                 <div class="col-lg-12">
@@ -274,5 +191,4 @@
     </script>
 
 </body>
-
 </html>

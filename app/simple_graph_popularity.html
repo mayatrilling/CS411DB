@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Movie Databaes</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/half-slider.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<style>
+
+</style>
+<body>
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://databaes411.web.engr.illinois.edu/?#">Movie Databaes</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Half Page Image Background Carousel Header -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for Slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <!-- Set the first background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('https://images6.alphacoders.com/322/322791.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Adventure Movies!</h2>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the second background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('http://s1.picswalls.com/wallpapers/2015/07/31/inside-out-desktop-wallpaper_123104808_260.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Animated Movies!</h2>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the third background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('http://s1.picswalls.com/wallpapers/2015/11/22/deadpool-desktop-wallpapers_103659927_293.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Action Movies!</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+
+    </header>
+
+
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script>
+var margin = {top: 30, right: 20, bottom: 30, left: 50}, //{top: 30, right: 20, bottom: 30, left: 50},
+    width = 1000 - margin.left - margin.right, //width = 600 - margin.left - margin.right,
+    height = 470 - margin.top - margin.bottom; //height = 270 - margin.top - margin.bottom;
+
+var parseDateTime = d3.time.format("%Y-%m-%d %H:%M:%S").parse;
+
+var x = d3.time.scale().range([0, width]);
+var y = d3.scale.linear().range([height, 0]);
+
+var xAxis = d3.svg.axis().scale(x)
+    .orient("bottom").ticks(5);
+
+var yAxis = d3.svg.axis().scale(y)
+    .orient("left").ticks(5);
+
+var valueline = d3.svg.line()
+    .x(function(d) { return x(d.release_date); })
+    .y(function(d) { return y(d.popularity); })
+    .interpolate("linear");
+
+var svg = d3.select("body")
+    .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var i = 1;
+
+svg.append("text")     
+	 .attr("x", 100)
+         .attr("y", 100)
+         .text("Movies listed (in order of release date):");
+
+// Get the data
+d3.json("json_array.txt", function(error, data) {
+    data.forEach(function(d) {
+        d.release_date = parseDateTime(d.release_date);    
+            
+        svg.append("text")      // text label for data points
+	        .attr("x", 120)
+	        .attr("y", 100 + i*20)
+	        .text(d.title);    
+            
+        d.popularity = +d.popularity; 
+        
+        i++;
+        	               
+    });
+    // Scale the range of the data
+    x.domain(d3.extent(data, function(d) { return d.release_date; }));
+    y.domain([0, d3.max(data, function(d) { return d.popularity; })]);
+
+    svg.append("path")      // Add the valueline path.
+        .attr("class", "line")
+        .attr("fill", "none")
+  	.attr("stroke", "black")
+        .attr("d", valueline(data));
+
+    svg.append("g")         // Add the X Axis
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
+
+    svg.append("g")         // Add the Y Axis
+        .attr("class", "y axis")
+        .call(yAxis);
+
+    svg.append("text")      // text label for the x axis
+        .attr("x", 440 )
+        .attr("y",  440 )
+        .style("text-anchor", "middle")
+        .text("Release date");
+        
+    svg.append("text")      // text label for the x axis
+        .attr("x", -200 )
+        .attr("y",  -25 )
+        .attr("transform", "rotate(-90)")
+        .style("text-anchor", "middle")
+        .text("Popularity");
+         
+});
+    </script>
+
+</body>
